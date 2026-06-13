@@ -64,7 +64,7 @@ export class BidService {
     );
     await this.requirementRepository.update(bid.requirementId, {
       status: RequirementStatus.InProgress,
-      winnerId: bid.requirement.publisherId
+      winnerId: bid.bidderId
     });
     return this.findOne(id);
   }

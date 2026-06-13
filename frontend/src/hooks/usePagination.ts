@@ -5,7 +5,7 @@ export function usePagination(initialPageSize = 8) {
   const pageSize = ref(initialPageSize);
   const total = ref(0);
 
-  const offset = computed(() => page.value * pageSize.value);
+  const offset = computed(() => (page.value - 1) * pageSize.value);
 
   function setTotal(value: number) {
     total.value = value;

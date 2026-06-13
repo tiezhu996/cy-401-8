@@ -64,9 +64,9 @@ export class ContractService {
   async complete(id: string) {
     const contract = await this.findOne(id);
     contract.status = ContractStatus.Completed;
-    contract.stages = contract.stages.map((stage, index) => ({
+    contract.stages = contract.stages.map(stage => ({
       ...stage,
-      completed: index < contract.stages.length - 1
+      completed: true
     }));
     await this.requirementRepository.update(contract.requirementId, {
       status: RequirementStatus.Completed

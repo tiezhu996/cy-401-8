@@ -40,7 +40,7 @@ export class RequirementService {
       qb.andWhere('requirement.skillTags LIKE :skill', { skill: `%${filters.skill}%` });
     }
     if (filters.minBudget !== undefined) {
-      qb.andWhere('requirement.budgetMin >= :minBudget', { minBudget: filters.minBudget });
+      qb.andWhere('requirement.budgetMax >= :minBudget', { minBudget: filters.minBudget });
     }
     if (filters.maxBudget !== undefined) {
       qb.andWhere('requirement.budgetMin <= :maxBudget', { maxBudget: filters.maxBudget });
